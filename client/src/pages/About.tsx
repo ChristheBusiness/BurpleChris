@@ -78,7 +78,7 @@ export default function About() {
     <>
       <SEO
         title="About Chris - Web Designer & Developer"
-        description="Meet Chris, an award-winning web designer and developer with over 5 years of experience creating exceptional digital experiences. Learn about my journey, design approach, and commitment to crafting beautiful, user-centric websites."
+        description="Meet Chris, a web designer and developer with over 5 years of experience creating exceptional digital experiences. Learn about my journey, design approach, and commitment to crafting beautiful, user-centric websites."
         keywords="about chris design, web designer bio, design experience, UI/UX portfolio, chris web developer"
       />
       <div className="min-h-screen pt-20 md:pt-24">

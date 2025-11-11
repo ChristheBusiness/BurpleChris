@@ -9,7 +9,7 @@ interface SEOProps {
 }
 
 export function SEO({
-  title = "Chris Design - Award-Winning Web Designer & Developer",
+  title = "Chris Design - Web Designer & Developer",
   description = "Transform your digital presence with stunning, user-centric web design by Chris. Specializing in modern, responsive websites, UI/UX design, and custom development that drive real results.",
   keywords = "chris design, web designer, website designer, UI/UX design, responsive web design, custom web development, portfolio, web design services",
   ogImage = "/og-image.png",

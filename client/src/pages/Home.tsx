@@ -103,10 +103,10 @@ export default function Home() {
             }`}
           >
             <div className="text-center space-y-8">
-              <Badge variant="outline" className="text-sm px-4 py-1.5 border-primary/30" data-testid="badge-hero">
+              {/*<Badge variant="outline" className="text-sm px-4 py-1.5 border-primary/30" data-testid="badge-hero">
                 <Sparkles className="w-3 h-3 mr-1.5 inline" />
                 Award-Winning Designer
-              </Badge>
+              </Badge>*/}
 
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-tight">
                 Crafting Digital
@@ -133,7 +133,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
+            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
               <ChevronDown className="w-6 h-6 text-muted-foreground" />
             </div>
           </div>

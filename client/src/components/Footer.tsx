@@ -11,7 +11,7 @@ export function Footer() {
       { href: "/about", label: "About" },
       { href: "/portfolio", label: "Portfolio" },
       { href: "/services", label: "Services" },
-      { href: "/blog", label: "Blog" },
+      /*{ href: "/blog", label: "Blog" },*/
       { href: "/contact", label: "Contact" },
     ],
     social: [
@@ -31,7 +31,7 @@ export function Footer() {
               Chris<span className="text-primary">Design</span>
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Crafting exceptional digital experiences through thoughtful design and innovative solutions by Chris, an award-winning web designer.
+              Crafting exceptional digital experiences through thoughtful design and innovative solutions by Chris.
             </p>
           </div>
 
