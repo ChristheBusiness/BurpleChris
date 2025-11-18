@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Search } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
+import { useEffect } from "react";
 
 export default function Portfolio() {
   const [filter, setFilter] = useState("all");
@@ -20,9 +21,9 @@ export default function Portfolio() {
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
       description: "Complete redesign of an online fashion retailer, resulting in 150% increase in conversions",
       tech: ["React", "Shopify", "Tailwind"],
-      link: "#",
+      link: "https://www.youtube.com/",
     },
-    {
+    /*{
       id: 2,
       title: "FinTech Dashboard",
       category: "SaaS",
@@ -93,7 +94,7 @@ export default function Portfolio() {
       description: "Patient portal for a modern medical practice",
       tech: ["Vue.js", "Laravel", "MySQL"],
       link: "#",
-    },
+    },*/
   ];
 
   const filteredProjects = projects.filter((project) => {

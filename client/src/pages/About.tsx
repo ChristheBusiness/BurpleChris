@@ -5,21 +5,21 @@ import { CheckCircle2, Award, Users, Briefcase } from "lucide-react";
 
 export default function About() {
   const skills = [
-    "UI/UX Design",
-    "Figma",
+    /*"Figma",
     "Adobe XD",
-    "Sketch",
+    "Sketch",*/
     "React",
     "TypeScript",
     "Tailwind CSS",
-    "Framer Motion",
+    /*"Framer Motion",
     "Webflow",
-    "WordPress",
+    "WordPress",*/
+    "UI/UX Design",
     "Brand Strategy",
     "Design Systems",
   ];
 
-  const experience = [
+  /*const experience = [
     {
       year: "2020 - Present",
       company: "Chris Design (Freelance)",
@@ -38,12 +38,12 @@ export default function About() {
       role: "Web Designer",
       description: "Crafted responsive websites and brand identities for diverse client portfolio.",
     },
-  ];
+  ];*/
 
   const stats = [
-    { icon: Briefcase, value: "150+", label: "Projects Completed" },
-    { icon: Users, value: "80+", label: "Happy Clients" },
-    { icon: Award, value: "25+", label: "Awards Won" },
+    { icon: Briefcase, value: "1", label: "Projects Completed" },
+    { icon: Users, value: "1", label: "Happy Client" },
+    /*{ icon: Award, value: "25+", label: "Awards Won" },*/
   ];
 
   const approach = [
@@ -96,17 +96,16 @@ export default function About() {
                 </h1>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Hi, I'm a passionate website designer and developer with over 5 years of experience creating digital
-                    experiences that matter. I believe great design is invisible—it just works.
+                    Hi, I'm a passionate website designer and developer. I believe great design is invisible—it just works.
                   </p>
                   <p>
                     My journey began with a simple curiosity about how things work on the web. That curiosity evolved into a
                     deep passion for crafting beautiful, functional websites that help businesses thrive in the digital age.
                   </p>
-                  <p>
+                  {/*<p>
                     When I'm not designing, you'll find me exploring the latest design trends, contributing to open-source
                     projects, or sharing knowledge with the design community.
-                  </p>
+                  </p>*/}
                 </div>
               </div>
 
@@ -119,8 +118,8 @@ export default function About() {
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded-xl shadow-lg">
-                  <p className="text-4xl font-bold">5+</p>
-                  <p className="text-sm">Years Experience</p>
+                  <p className="text-4xl font-bold">12+</p>
+                  <p className="text-sm">Months Of Experience</p>
                 </div>
               </div>
             </div>
@@ -143,7 +142,7 @@ export default function About() {
           </div>
         </section>
 
-        <section className="py-16 md:py-24">
+        {/*<section className="py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="max-w-3xl mb-12">
               <h2 className="text-3xl md:text-5xl font-bold mb-4">Experience</h2>
@@ -168,7 +167,7 @@ export default function About() {
               ))}
             </div>
           </div>
-        </section>
+        </section>*/}
 
         <section className="py-16 md:py-24 bg-accent/30">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">

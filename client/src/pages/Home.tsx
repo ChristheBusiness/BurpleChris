@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
-import { ArrowRight, Sparkles, Zap, Heart, Code, Palette, Rocket, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, Heart, Code, Rocket, ChevronDown,Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { fadeUp, staggerContainer, staggerItem, useScrollAnimation } from "@/lib/motion";
@@ -41,13 +41,13 @@ export default function Home() {
 
   const services = [
     {
-      icon: Palette,
-      title: "UI/UX Design",
-      description: "Beautiful interfaces that users love to interact with",
-    },
-    {
       icon: Code,
       title: "Web Development",
+      description: "Fast, responsive websites built with modern technologies",
+    },
+    {
+      icon: Search,
+      title: "SEO Optimization",
       description: "Fast, responsive websites built with modern technologies",
     },
     {

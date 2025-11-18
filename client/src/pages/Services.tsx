@@ -16,7 +16,7 @@ import {
 
 export default function Services() {
   const services = [
-    {
+    /*{
       icon: Palette,
       title: "UI/UX Design",
       description:
@@ -29,7 +29,7 @@ export default function Services() {
         "Design systems",
       ],
       price: "Starting at $2,500",
-    },
+    },*/
     {
       icon: Code,
       title: "Web Development",
@@ -42,7 +42,7 @@ export default function Services() {
         "Performance optimization",
         "Ongoing maintenance",
       ],
-      price: "Starting at $3,000",
+      price: "Starting at €90",
     },
     {
       icon: Rocket,
@@ -56,7 +56,7 @@ export default function Services() {
         "Business card & collateral",
         "Social media assets",
       ],
-      price: "Starting at $2,000",
+      price: "Starting at €60",
     },
     {
       icon: Search,
@@ -70,9 +70,9 @@ export default function Services() {
         "Content strategy",
         "Performance tracking",
       ],
-      price: "Starting at $1,500",
+      price: "Starting at €30",
     },
-    {
+    /*{
       icon: Smartphone,
       title: "Mobile App Design",
       description:
@@ -99,7 +99,7 @@ export default function Services() {
         "CRO strategy",
       ],
       price: "Starting at $2,000",
-    },
+    },*/
   ];
 
   const process = [
@@ -115,28 +115,28 @@ export default function Services() {
       title: "Proposal & Agreement",
       description:
         "Receive a detailed proposal outlining scope, timeline, and investment. Upon approval, we'll sign the agreement.",
-      duration: "2-3 days",
+      duration: "1-2 days",
     },
     {
       number: "03",
       title: "Research & Strategy",
       description:
         "Deep dive into your industry, competitors, and target audience to inform our design decisions.",
-      duration: "1-2 weeks",
+      duration: "1-2 days",
     },
     {
       number: "04",
       title: "Design & Development",
       description:
         "Bringing your vision to life with iterative design and development, with regular check-ins for feedback.",
-      duration: "4-8 weeks",
+      duration: "3-7 days",
     },
     {
       number: "05",
       title: "Testing & Refinement",
       description:
         "Thorough testing across devices and browsers, making refinements based on feedback and analytics.",
-      duration: "1-2 weeks",
+      duration: "1 week",
     },
     {
       number: "06",

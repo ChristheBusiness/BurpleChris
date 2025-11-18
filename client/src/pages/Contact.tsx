@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { useEffect } from "react";
+import { useLocation } from "wouter";
 import {
   Select,
   SelectContent,
@@ -19,6 +21,7 @@ import { useToast } from "@/hooks/use-toast";
 export default function Contact() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,19 +42,19 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      value: "hello@chrisdesign.com",
+      value: "businessmihaicristian@gmail.com",
       link: "mailto:hello@chrisdesign.com",
     },
     {
       icon: MapPin,
       title: "Location",
-      value: "San Francisco, CA",
+      value: "Bucharest, RO",
       link: null,
     },
     {
       icon: Clock,
       title: "Availability",
-      value: "Mon - Fri, 9am - 6pm PST",
+      value: "Mon - Fri, 2pm - 9pm EET",
       link: null,
     },
   ];
@@ -127,7 +130,7 @@ export default function Contact() {
                           <SelectItem value="web-design">Web Design</SelectItem>
                           <SelectItem value="web-development">Web Development</SelectItem>
                           <SelectItem value="branding">Branding</SelectItem>
-                          <SelectItem value="mobile-app">Mobile App</SelectItem>
+                          {/*<SelectItem value="mobile-app">Mobile App</SelectItem>*/}
                           <SelectItem value="seo">SEO</SelectItem>
                           <SelectItem value="other">Other</SelectItem>
                         </SelectContent>
@@ -141,10 +144,8 @@ export default function Contact() {
                           <SelectValue placeholder="Select your budget range" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="under-5k">Under $5,000</SelectItem>
-                          <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
-                          <SelectItem value="10k-20k">$10,000 - $20,000</SelectItem>
-                          <SelectItem value="20k-plus">$20,000+</SelectItem>
+                          <SelectItem value="under-100">Under €100</SelectItem>
+                          <SelectItem value="100-300">€100 - €300</SelectItem>
                           <SelectItem value="not-sure">Not Sure</SelectItem>
                         </SelectContent>
                       </Select>
