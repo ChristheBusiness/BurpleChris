@@ -55,7 +55,7 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 data-testid={`link-${link.label.toLowerCase()}`}
-                className={`text-sm font-medium transition-colors hover:text-primary relative py-2 ${
+                className={`text-sm font-medium transition-colors hover:text-primary relative py-2 hover:scale-95 duration-200 ease-in-out ${
                   isActive(link.href) ? "text-foreground" : "text-muted-foreground"
                 }`}
               >

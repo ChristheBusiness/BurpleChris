@@ -42,7 +42,7 @@ export default function Services() {
         "Performance optimization",
         "Ongoing maintenance",
       ],
-      price: "Starting at €90",
+      price: "Starting at €150",
     },
     {
       icon: Rocket,
@@ -56,7 +56,7 @@ export default function Services() {
         "Business card & collateral",
         "Social media assets",
       ],
-      price: "Starting at €60",
+      price: "Starting at €100",
     },
     {
       icon: Search,
@@ -70,7 +70,7 @@ export default function Services() {
         "Content strategy",
         "Performance tracking",
       ],
-      price: "Starting at €30",
+      price: "Starting at €50",
     },
     /*{
       icon: Smartphone,
@@ -154,7 +154,7 @@ export default function Services() {
         description="Professional web design and development services by Chris. UI/UX design, custom development, branding, mobile apps, SEO optimization, and conversion rate optimization. Competitive pricing starting at $1,500."
         keywords="web design services, UI/UX design services, custom web development, branding services, SEO services, chris design pricing"
       />
-      <div className="min-h-screen pt-20 md:pt-24">
+      <div className="min-h-screen pt-20 md:pt-24 ">
         <section className="py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="max-w-3xl mb-16">
@@ -171,7 +171,7 @@ export default function Services() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
               {services.map((service, index) => (
-                <Card key={service.title} className="hover-elevate transition-all duration-300" data-testid={`card-service-${index}`}>
+                <Card key={service.title} className="hover-elevate transition-all duration-300 overflow-hidden group hover:-translate-y-1" data-testid={`card-service-${index}`}>
                   <CardContent className="p-8">
                     <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
                       <service.icon className="w-7 h-7 text-primary" />

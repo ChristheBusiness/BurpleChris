@@ -201,7 +201,7 @@ export default function About() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {approach.map((step, index) => (
-                <Card key={step.number} className="p-6 hover-elevate" data-testid={`card-approach-${index}`}>
+                <Card key={step.number} className="p-6 hover-elevate duration-300 hover:scale-105" data-testid={`card-approach-${index}`}>
                   <div className="text-6xl font-bold text-primary/20 mb-4">{step.number}</div>
                   <h3 className="text-xl font-bold mb-3">{step.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>

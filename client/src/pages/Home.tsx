@@ -6,6 +6,7 @@ import { Link } from "wouter";
 import { ArrowRight, Sparkles, Zap, Heart, Code, Rocket, ChevronDown,Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { fadeUp, staggerContainer, staggerItem, useScrollAnimation } from "@/lib/motion";
 
 export default function Home() {
@@ -84,6 +85,30 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [testimonials.length]);
 
+  // Animation variants for staggered animations
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.22,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.2, 0.65, 0.3, 0.9],
+      },
+    },
+  };
+
   return (
     <>
       <SEO />
@@ -97,30 +122,42 @@ export default function Home() {
             }}
           />
 
-          <div
-            className={`max-w-7xl mx-auto px-6 lg:px-8 relative z-10 transition-all duration-1000 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+          <motion.div
+            className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
           >
-            <div className="text-center space-y-8">
-              {/*<Badge variant="outline" className="text-sm px-4 py-1.5 border-primary/30" data-testid="badge-hero">
-                <Sparkles className="w-3 h-3 mr-1.5 inline" />
-                Award-Winning Designer
-              </Badge>*/}
+            <motion.div className="text-center space-y-8">
+              <motion.div variants={itemVariants}>
+                {/*<Badge variant="outline" className="text-sm px-4 py-1.5 border-primary/30" data-testid="badge-hero">
+                  <Sparkles className="w-3 h-3 mr-1.5 inline" />
+                  Award-Winning Designer
+                </Badge>*/}
+              </motion.div>
 
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-tight">
+              <motion.h1 
+                className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-tight"
+                variants={itemVariants}
+              >
                 Crafting Digital
                 <br />
                 <span className="text-primary">Experiences</span>
-              </h1>
+              </motion.h1>
 
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              <motion.p 
+                className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+                variants={itemVariants}
+              >
                 Transforming ideas into stunning, user-centric websites that drive results and leave lasting impressions.
-              </p>
+              </motion.p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
+                variants={itemVariants}
+              >
                 <Button size="lg" asChild className="text-base px-8" data-testid="button-view-work">
-                  <Link href="/portfolio" className="flex items-center gap-2">
+                  <Link href="/portfolio" className="flex items-center gap-2 hover:-translate-y-1 duration-300">
                     View My Work
                     <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -130,50 +167,86 @@ export default function Home() {
                     Get in Touch
                   </Link>
                 </Button>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
+            <motion.div 
+              className="absolute bottom-12 left-1/2 -translate-x-1/2 hidden md:block"
+              variants={itemVariants}
+              animate={{
+                y: [0, -10, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeInOut"
+              }}
+            >
               <ChevronDown className="w-6 h-6 text-muted-foreground" />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </section>
 
         <section className="py-20 md:py-32">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <motion.div 
+              className="text-center mb-16"
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ 
+                y: 0, 
+                opacity: 1,
+                transition: { 
+                  duration: 0.9, 
+                  delay: 0.2,
+                  ease: [0.2, 0.65, 0.3, 0.9] 
+                }
+              }}
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="text-3xl md:text-5xl font-bold mb-4">Featured Work</h2>
               <p className="text-muted-foreground text-lg">A selection of recent projects</p>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project, index) => (
-                <Card
+              {projects.map((project) => (
+                <motion.div
                   key={project.id}
-                  className="group overflow-hidden hover-elevate transition-all duration-300"
-                  style={{
-                    animationDelay: `${index * 100}ms`,
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{
+                    y: 0,
+                    opacity: 1,
+                    transition: {
+                      duration: 1.2,
+                      delay: 0.2,
+                      ease: [0.2, 0.65, 0.3, 0.9],
+                    },
                   }}
-                  data-testid={`card-project-${project.id}`}
+                  viewport={{ once: true, margin: "-50px" }}
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                  <CardContent className="p-6">
-                    <Badge variant="secondary" className="mb-3" data-testid={`badge-category-${project.id}`}>
-                      {project.category}
-                    </Badge>
-                    <h3 className="text-xl font-bold mb-2" data-testid={`text-project-title-${project.id}`}>
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">{project.description}</p>
-                  </CardContent>
-                </Card>
+                  <Card 
+                    className="overflow-hidden group hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                    data-testid={`card-project-${project.id}`}
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <CardContent className="p-6">
+                      <Badge variant="secondary" className="mb-3" data-testid={`badge-category-${project.id}`}>
+                        {project.category}
+                      </Badge>
+                      <h3 className="text-xl font-bold mb-2" data-testid={`text-project-title-${project.id}`}>
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm">{project.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
 
@@ -195,11 +268,11 @@ export default function Home() {
               <p className="text-muted-foreground text-lg">Services that drive success</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
               {services.map((service, index) => (
                 <Card
                   key={service.title}
-                  className="text-center p-8 hover-elevate transition-all duration-300"
+                  className="text-center p-8 overflow-hidden group hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                   style={{
                     animationDelay: `${index * 100}ms`,
                   }}
@@ -216,10 +289,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-20 md:py-32">
+        {/*<section className="py-20 md:py-32">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">Client Love</h2>
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Clients Love</h2>
               <p className="text-muted-foreground text-lg">What people are saying</p>
             </div>
 
@@ -252,7 +325,7 @@ export default function Home() {
               </div>
             </Card>
           </div>
-        </section>
+        </section>*/}
 
         <section className="py-20 md:py-32 bg-gradient-to-br from-primary/10 via-background to-primary/5">
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
@@ -263,7 +336,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="text-base px-8" data-testid="button-cta-start">
-                <Link href="/contact" className="flex items-center gap-2">
+                <Link href="/contact" className="flex items-center gap-2 hover:-translate-y-1 duration-300">
                   Start a Project
                   <ArrowRight className="w-4 h-4" />
                 </Link>
